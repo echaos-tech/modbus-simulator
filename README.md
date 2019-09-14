@@ -1,1 +1,1 @@
-# modbus-simulator
+# simulator-modbus

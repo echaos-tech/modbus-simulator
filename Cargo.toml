@@ -1,0 +1,30 @@
+[package]
+name = "modbus-simulator"
+version = "0.1.0"
+authors = ["yangchengjian0101 <yangchengjian0101@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.1"
+rand = "0.7"
+tokio-io = "0.1"
+tokio-core = "0.1"
+tokio-codec = "0.1"
+tokio-proto = "0.1"
+tokio-service = "0.1"
+
+tokio-modbus = "*"
+
+# Disable default-features to exclude unused dependency on libudev
+tokio-serial = { version = "3.2", optional = true, default-features = false }
+
+[dev-dependencies]
+env_logger = "0.6"
+
+[features]
+default = ["tcp", "rtu", "sync"]
+rtu = ["tokio-serial"]
+tcp = []
+sync = []
